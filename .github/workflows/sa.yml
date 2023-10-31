@@ -1,0 +1,25 @@
+name: Static code analysis
+
+on: [pull_request]
+
+jobs:
+  static-code-analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: PHPStan
+        uses: docker://jakzal/phpqa:php8.2-alpine
+        with:
+          args: phpstan --no-ansi analyze -lmax src
+      - name: Code style
+        uses: docker://jakzal/phpqa:php8.2-alpine
+        with:
+          args: ecs --no-ansi
+      - name: Psalm
+        uses: docker://jakzal/phpqa:php8.2-alpine
+        with:
+          args: psalm --long-progress
+      - name: Unit
+        uses: docker://jakzal/phpqa:php8.2-alpine
+        with:
+          args: phpunit

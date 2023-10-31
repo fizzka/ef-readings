@@ -11,7 +11,7 @@ use function Fizz\Readings\Functions\sensorAverage;
 
 require '../vendor/autoload.php';
 
-$dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
+$dispatcher = FastRoute\simpleDispatcher(function (FastRoute\RouteCollector $r) {
     $r->get('/api/sensors/average/{days:\d+}', overallAverage(...));
     $r->get('/api/sensors/{sensor:[a-z\d\-]}/average', sensorAverage(...));
 
@@ -19,7 +19,6 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->post('/api/push', pushReading(...));
     // API#2
     $r->get('/sensor/read/{sensor_uuid:[a-z\d\-]}', pullReading(...));
-    
 });
 
 $container = new DI\Container([
@@ -58,7 +57,7 @@ switch ($routeInfo[0]) {
 }
 
 array_map(
-    fn($header) => header($header . ': ' . $response->getHeaderLine($header)),
+    fn ($header) => header($header . ': ' . $response->getHeaderLine($header)),
     array_keys($response->getHeaders())
 );
 
