@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use Fizz\Readings\ReadingAverage;
-use Fizz\Readings\Temperature;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
 use Ramsey\Uuid\Uuid;
