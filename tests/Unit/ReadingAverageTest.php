@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+namespace Fizz\Readings\Tests\Unit;
+
 use Fizz\Readings\ReadingAverage;
 use PHPUnit\Framework\MockObject\MockObject;
 use PHPUnit\Framework\TestCase;
