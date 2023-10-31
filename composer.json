@@ -1,0 +1,27 @@
+{
+    "require": {
+        "ramsey/uuid": "^4.7",
+        "laminas/laminas-diactoros": "^3.3",
+        "nikic/fast-route": "^1.3",
+        "php-di/php-di": "^7.0"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^6.3",
+        "phpunit/phpunit": "^10.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Fizz\\Readings\\": "src/"
+        },
+        "files": [
+            "src/functions.php"
+        ]
+    },
+    "scripts": {
+        "start": [
+            "@composer install",
+            "Composer\\Config::disableProcessTimeout",
+            "@php -S 0:80 -t public"
+        ]
+    }
+}
